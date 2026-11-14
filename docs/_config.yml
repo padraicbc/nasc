@@ -1,0 +1,8 @@
+title: Nasc
+description: A fast, private SSH client for Android.
+theme: jekyll-theme-minimal
+exclude:
+  - RELEASE.md
+  - RELEASE_NOTES.md
+  - STORE_LISTING.md
+  - store

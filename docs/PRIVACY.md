@@ -1,3 +1,8 @@
+---
+title: Nasc Privacy Policy
+permalink: /privacy/
+---
+
 # Nasc Privacy Policy
 
 _Last updated: 2026-11-12. Replace the contact details before publishing._
