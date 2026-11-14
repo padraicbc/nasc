@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="500" viewBox="0 0 1024 500">
+  <rect width="1024" height="500" fill="#0D1117"/>
+  <g transform="translate(90,130) scale(2.4)">
+    <rect width="108" height="108" rx="24" fill="#161B22"/>
+    <path d="M34,38 L52,54 L34,70" fill="none" stroke="#E6EDF3" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M58,72 L76,72" fill="none" stroke="#2F81F7" stroke-width="7" stroke-linecap="round"/>
+  </g>
+  <text x="400" y="235" font-family="Noto Sans, DejaVu Sans, sans-serif" font-weight="700" font-size="104" fill="#E6EDF3">Nasc</text>
+  <text x="404" y="300" font-family="Noto Sans, DejaVu Sans, sans-serif" font-size="34" fill="#8B949E">A fast, private SSH client</text>
+  <text x="404" y="348" font-family="Noto Sans, DejaVu Sans, sans-serif" font-size="34" fill="#2F81F7">No account. No ads. No tracking.</text>
+</svg>
