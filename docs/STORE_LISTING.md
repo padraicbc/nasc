@@ -31,7 +31,7 @@ PRIVATE BY DESIGN
 Nasc needs an SSH server to connect to (a Linux box, Raspberry Pi, VPS, NAS, etc.).
 
 **Category:** Tools   **Tags:** SSH, terminal, developer tools
-**Contact email / website / privacy policy URL:** _fill in_
+**Contact email:** csaneht@gmail.com   **Website:** https://padraicbc.github.io/nasc/   **Privacy policy URL:** https://padraicbc.github.io/nasc/privacy/
 
 ## Graphics
 

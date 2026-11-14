@@ -23,3 +23,7 @@ leave your phone.
 - Extra key row: Ctrl, Esc, Tab, arrows, `|`
 
 Install and usage instructions are in the [README](https://github.com/padraicbc/nasc#readme).
+
+## Support
+
+Nasc is free and open source. If it's useful to you, you can [chip in via PayPal](https://paypal.me/padraicc).

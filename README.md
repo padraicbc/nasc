@@ -55,6 +55,10 @@ Saved SSH keys can't be decrypted without it, and it's asked again after the app
 
 Nasc has no servers and collects nothing. See [docs/PRIVACY.md](docs/PRIVACY.md).
 
+## Support
+
+Nasc is free and open source. If it's useful to you, you can [chip in via PayPal](https://paypal.me/padraicc). Never expected, always appreciated.
+
 ## License
 
 MIT. See [LICENSE](LICENSE). Third-party notices: Go and `golang.org/x/crypto` (BSD-3),

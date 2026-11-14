@@ -5,7 +5,7 @@ permalink: /privacy/
 
 # Nasc Privacy Policy
 
-_Last updated: 2026-11-12. Replace the contact details before publishing._
+_Last updated: 2026-11-14._
 
 Nasc is an SSH client. It is designed so that your data stays on your device.
 
@@ -48,4 +48,4 @@ Nasc is not directed at children.
 
 ## Changes and contact
 
-If this policy changes, the date above will change. Contact: YOUR-EMAIL-HERE
+If this policy changes, the date above will change. Contact: csaneht@gmail.com
