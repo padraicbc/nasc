@@ -3,8 +3,6 @@ package nasc
 import (
 	"bytes"
 	"encoding/json"
-	"errors"
-	"os"
 	"path/filepath"
 	"sync"
 
@@ -34,14 +32,10 @@ type KnownHosts struct {
 
 func openKnownHosts(dir string) (*KnownHosts, error) {
 	k := &KnownHosts{path: filepath.Join(dir, "known_hosts.json"), entries: map[string]knownEntry{}}
-	b, err := os.ReadFile(k.path)
-	if errors.Is(err, os.ErrNotExist) {
-		return k, nil
-	}
-	if err != nil {
+	if err := readJSONFile(k.path, &k.entries); err != nil {
 		return nil, err
 	}
-	return k, json.Unmarshal(b, &k.entries)
+	return k, nil
 }
 
 func (k *KnownHosts) Check(addr string, key ssh.PublicKey) HostKeyStatus {
@@ -66,9 +60,5 @@ func (k *KnownHosts) Trust(addr string, key ssh.PublicKey) error {
 	if err != nil {
 		return err
 	}
-	tmp := k.path + ".tmp"
-	if err := os.WriteFile(tmp, b, 0o600); err != nil {
-		return err
-	}
-	return os.Rename(tmp, k.path)
+	return writeFileAtomic(k.path, b)
 }

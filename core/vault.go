@@ -12,7 +12,6 @@ import (
 	"errors"
 	"fmt"
 	"net/http"
-	"os"
 	"path/filepath"
 	"sort"
 	"strings"
@@ -61,14 +60,10 @@ func openVault(dir string, masterKey []byte) (*Vault, error) {
 		return nil, err
 	}
 	v := &Vault{path: filepath.Join(dir, "keys.json"), gcm: gcm, entries: []vaultEntry{}}
-	b, err := os.ReadFile(v.path)
-	if errors.Is(err, os.ErrNotExist) {
-		return v, nil
-	}
-	if err != nil {
+	if err := readJSONFile(v.path, &v.entries); err != nil {
 		return nil, err
 	}
-	return v, json.Unmarshal(b, &v.entries)
+	return v, nil
 }
 
 func (v *Vault) flush() error {
@@ -76,11 +71,7 @@ func (v *Vault) flush() error {
 	if err != nil {
 		return err
 	}
-	tmp := v.path + ".tmp"
-	if err := os.WriteFile(tmp, b, 0o600); err != nil {
-		return err
-	}
-	return os.Rename(tmp, v.path)
+	return writeFileAtomic(v.path, b)
 }
 
 func (v *Vault) List() []KeyInfo {
