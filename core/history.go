@@ -2,9 +2,7 @@ package nasc
 
 import (
 	"encoding/json"
-	"errors"
 	"net/http"
-	"os"
 	"path/filepath"
 	"strings"
 	"sync"
@@ -25,14 +23,10 @@ type HistoryStore struct {
 
 func openHistoryStore(dir string) (*HistoryStore, error) {
 	h := &HistoryStore{path: filepath.Join(dir, "history.json"), data: map[string][]string{}}
-	b, err := os.ReadFile(h.path)
-	if errors.Is(err, os.ErrNotExist) {
-		return h, nil
-	}
-	if err != nil {
+	if err := readJSONFile(h.path, &h.data); err != nil {
 		return nil, err
 	}
-	return h, json.Unmarshal(b, &h.data)
+	return h, nil
 }
 
 func (h *HistoryStore) flush() error {
@@ -40,11 +34,7 @@ func (h *HistoryStore) flush() error {
 	if err != nil {
 		return err
 	}
-	tmp := h.path + ".tmp"
-	if err := os.WriteFile(tmp, b, 0o600); err != nil {
-		return err
-	}
-	return os.Rename(tmp, h.path)
+	return writeFileAtomic(h.path, b)
 }
 
 func (h *HistoryStore) Get(key string) []string {
