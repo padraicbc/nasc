@@ -50,8 +50,8 @@ jobs:
       run:
         working-directory: web
     steps:
+      - uses: actions/setup-node@v7
       - uses: actions/checkout@v7
-      - uses: actions/setup-node@v4
         with:
           node-version: 22
           cache: npm
@@ -85,7 +85,7 @@ jobs:
           go-version: stable
           check-latest: true
           cache-dependency-path: core/go.sum
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v7
         with:
           node-version: 22
           cache: npm
