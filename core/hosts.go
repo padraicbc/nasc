@@ -6,7 +6,6 @@ import (
 	"encoding/json"
 	"errors"
 	"net/http"
-	"os"
 	"path/filepath"
 	"sort"
 	"strings"
@@ -32,14 +31,7 @@ type HostStore struct {
 
 func openHostStore(dir string) (*HostStore, error) {
 	s := &HostStore{path: filepath.Join(dir, "hosts.json"), hosts: []Host{}}
-	b, err := os.ReadFile(s.path)
-	if errors.Is(err, os.ErrNotExist) {
-		return s, nil
-	}
-	if err != nil {
-		return nil, err
-	}
-	if err := json.Unmarshal(b, &s.hosts); err != nil {
+	if err := readJSONFile(s.path, &s.hosts); err != nil {
 		return nil, err
 	}
 	return s, nil
@@ -50,11 +42,7 @@ func (s *HostStore) flush() error {
 	if err != nil {
 		return err
 	}
-	tmp := s.path + ".tmp"
-	if err := os.WriteFile(tmp, b, 0o600); err != nil {
-		return err
-	}
-	return os.Rename(tmp, s.path)
+	return writeFileAtomic(s.path, b)
 }
 
 func (s *HostStore) List() []Host {
