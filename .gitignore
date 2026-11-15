@@ -17,3 +17,5 @@ android/keystore.properties
 dist/
 .vscode/
 android/keystore*.properties
+web/coverage/
+core/coverage.out
