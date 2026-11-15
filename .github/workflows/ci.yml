@@ -23,7 +23,8 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-go@v5
         with:
-          go-version-file: core/go.mod
+          go-version: stable
+          check-latest: true
           cache-dependency-path: core/go.sum
       - name: gofmt
         run: test -z "$(gofmt -l .)" || { gofmt -l .; exit 1; }
@@ -81,7 +82,8 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-go@v5
         with:
-          go-version-file: core/go.mod
+          go-version: stable
+          check-latest: true
           cache-dependency-path: core/go.sum
       - uses: actions/setup-node@v4
         with:
