@@ -70,6 +70,6 @@ dependencies {
     // Built by scripts/build-android.sh (gomobile bind): SSH core + embedded web app.
     implementation(files("libs/nasc.aar"))
     implementation("androidx.appcompat:appcompat:1.7.0")
-    implementation("androidx.core:core-ktx:1.15.0")
+    implementation("androidx.core:core-ktx:1.19.1")
     implementation("androidx.biometric:biometric:1.1.0")
 }
