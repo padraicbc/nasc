@@ -9,5 +9,8 @@ export default defineConfig({
 			adapter: adapter({ pages: 'build', assets: 'build', fallback: 'index.html', strict: false })
 		})
 	],
-	test: { include: ['src/**/*.test.ts'] }
+	test: {
+		include: ['src/**/*.test.ts'],
+		coverage: { provider: 'v8', include: ['src/lib/**/*.ts'], reporter: ['text-summary', 'lcov'] }
+	}
 });

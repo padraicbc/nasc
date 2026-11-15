@@ -1,5 +1,7 @@
 # Nasc
 
+[![CI](https://github.com/padraicbc/nasc/actions/workflows/ci.yml/badge.svg)](https://github.com/padraicbc/nasc/actions/workflows/ci.yml)
+
 A fast, private SSH client for Android. No account, no ads, no analytics: your hosts and keys never
 leave your phone.
 
